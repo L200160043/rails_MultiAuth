@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Multiauth</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if status_user %>
+      <div>
+        Halo <%= status_user.username %>
+      </div>
+      <%= link_to 'Logout',session_path(status_user),method: :delete %>
+    <% else %>
+      Silahkan login terlebih dahulu
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
